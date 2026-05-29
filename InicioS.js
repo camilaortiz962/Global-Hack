@@ -21,3 +21,16 @@ nombre.addEventListener("input", () => {
     }
 
 });
+
+correo.addEventListener("input", () => {
+
+    const expresionCorreo =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!expresionCorreo.test(correo.value)){
+        errorCorreo.textContent = "Correo electrónico inválido";
+    }else{
+        errorCorreo.textContent = "";
+    }
+
+});
