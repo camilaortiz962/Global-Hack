@@ -14,3 +14,50 @@ body {
     color: #ffffff;
     overflow-x: hidden;
 }
+
+.header {
+    width: 100%;
+    min-height: 72px;
+    padding: 0 5%;
+    background: #003b67;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo span {
+    width: 13px;
+    height: 13px;
+    background: #e30613;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.menu {
+    display: flex;
+    gap: 26px;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.menu a:hover {
+    color: #e30613;
+}
