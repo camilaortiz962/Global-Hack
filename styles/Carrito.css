@@ -26,6 +26,11 @@ body.modal-abierto {
     z-index: 2;
 }
 
+.bg-compra {
+    background-image: url(../Imagenes/fondo\ compra.png);
+    background-position:center right;
+}
+
 .header {
     width: 100%;
     min-height: 86px;
