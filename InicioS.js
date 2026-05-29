@@ -11,78 +11,58 @@ const errorPassword = document.getElementById("errorPassword");
 const mensajeVerificacion = document.getElementById("mensajeVerificacion");
 
 nombre.addEventListener("input", () => {
-
     nombre.value = nombre.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
 
-    if(nombre.value.length < 5){
+    if (nombre.value.length < 5) {
         errorNombre.textContent = "Debe ingresar nombre y apellido";
-    }else{
+    } else {
         errorNombre.textContent = "";
     }
-
 });
 
 correo.addEventListener("input", () => {
+    const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const expresionCorreo =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if(!expresionCorreo.test(correo.value)){
+    if (!expresionCorreo.test(correo.value)) {
         errorCorreo.textContent = "Correo electrónico inválido";
-    }else{
+    } else {
         errorCorreo.textContent = "";
     }
-
 });
 
 password.addEventListener("input", () => {
+    const expresionPassword = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
-    const expresionPassword =
-    /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-
-    if(!expresionPassword.test(password.value)){
-        errorPassword.textContent =
-        "Mínimo 8 caracteres, un número y un carácter especial";
-    }else{
+    if (!expresionPassword.test(password.value)) {
+        errorPassword.textContent = "Mínimo 8 caracteres, un número y un carácter especial";
+    } else {
         errorPassword.textContent = "";
     }
 
     validarCoincidencia();
-
 });
-
 
 verificarPassword.addEventListener("input", validarCoincidencia);
 
-function validarCoincidencia(){
-
-    if(verificarPassword.value === ""){
+function validarCoincidencia() {
+    if (verificarPassword.value === "") {
         mensajeVerificacion.textContent = "";
         return;
     }
 
-    if(password.value === verificarPassword.value){
-
-        mensajeVerificacion.textContent =
-        "Las contraseñas coinciden";
-
+    if (password.value === verificarPassword.value) {
+        mensajeVerificacion.textContent = "Las contraseñas coinciden";
         mensajeVerificacion.style.color = "green";
-
-    }else{
-
-        mensajeVerificacion.textContent =
-        "Las contraseñas NO coinciden";
-
+    } else {
+        mensajeVerificacion.textContent = "Las contraseñas NO coinciden";
         mensajeVerificacion.style.color = "red";
     }
-
 }
 
 formulario.addEventListener("submit", (e) => {
-
     e.preventDefault();
 
-    if(
+    if (
         errorNombre.textContent === "" &&
         errorCorreo.textContent === "" &&
         errorPassword.textContent === "" &&
@@ -90,14 +70,35 @@ formulario.addEventListener("submit", (e) => {
         nombre.value !== "" &&
         correo.value !== "" &&
         password.value !== ""
-    ){
-
+    ) {
         alert("Formulario enviado correctamente");
-        window.location.href = "index.html";
-
-    }else{
-
+        window.location.href = "index.html#inicio";
+    } else {
         alert("Por favor complete correctamente el formulario");
     }
+});
 
+
+/* FORMULARIO DE CONTACTO EN INICIOS */
+
+const abrirFormulario = document.querySelector(".abrir-formulario");
+const modalContacto = document.querySelector("#formularioContacto");
+const cerrarFormulario = document.querySelector(".cerrar-formulario");
+
+abrirFormulario.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalContacto.classList.add("activo");
+    document.body.classList.add("modal-abierto");
+});
+
+cerrarFormulario.addEventListener("click", () => {
+    modalContacto.classList.remove("activo");
+    document.body.classList.remove("modal-abierto");
+});
+
+modalContacto.addEventListener("click", (e) => {
+    if (e.target === modalContacto) {
+        modalContacto.classList.remove("activo");
+        document.body.classList.remove("modal-abierto");
+    }
 });
