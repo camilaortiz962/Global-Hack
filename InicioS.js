@@ -77,3 +77,27 @@ function validarCoincidencia(){
     }
 
 }
+
+formulario.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    if(
+        errorNombre.textContent === "" &&
+        errorCorreo.textContent === "" &&
+        errorPassword.textContent === "" &&
+        password.value === verificarPassword.value &&
+        nombre.value !== "" &&
+        correo.value !== "" &&
+        password.value !== ""
+    ){
+
+        alert("Formulario enviado correctamente");
+        window.location.href = "index.html";
+
+    }else{
+
+        alert("Por favor complete correctamente el formulario");
+    }
+
+});
