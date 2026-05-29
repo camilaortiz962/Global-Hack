@@ -50,3 +50,30 @@ password.addEventListener("input", () => {
     validarCoincidencia();
 
 });
+
+
+verificarPassword.addEventListener("input", validarCoincidencia);
+
+function validarCoincidencia(){
+
+    if(verificarPassword.value === ""){
+        mensajeVerificacion.textContent = "";
+        return;
+    }
+
+    if(password.value === verificarPassword.value){
+
+        mensajeVerificacion.textContent =
+        "Las contraseñas coinciden";
+
+        mensajeVerificacion.style.color = "green";
+
+    }else{
+
+        mensajeVerificacion.textContent =
+        "Las contraseñas NO coinciden";
+
+        mensajeVerificacion.style.color = "red";
+    }
+
+}
