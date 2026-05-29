@@ -34,3 +34,19 @@ correo.addEventListener("input", () => {
     }
 
 });
+
+password.addEventListener("input", () => {
+
+    const expresionPassword =
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+    if(!expresionPassword.test(password.value)){
+        errorPassword.textContent =
+        "Mínimo 8 caracteres, un número y un carácter especial";
+    }else{
+        errorPassword.textContent = "";
+    }
+
+    validarCoincidencia();
+
+});
