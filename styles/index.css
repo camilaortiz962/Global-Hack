@@ -15,6 +15,10 @@ body {
     overflow-x: hidden;
 }
 
+body.modal-abierto {
+    overflow: hidden;
+}
+
 .contenedor {
     width: min(1180px, 90%);
     margin: 0 auto;
@@ -24,49 +28,73 @@ body {
 
 .header {
     width: 100%;
-    min-height: 72px;
-    padding: 0 5%;
-    background: #003b67;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    min-height: 86px;
+    padding: 0;
+    background: #002f4a;
+    border-top: 6px solid #77a9c9;
     position: sticky;
     top: 0;
     z-index: 50;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-.logo {
+.header-contenedor {
+    width: min(1280px, 92%);
+    min-height: 80px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    justify-content: space-between;
 }
 
-.logo span {
-    width: 13px;
-    height: 13px;
-    background: #e30613;
-    border-radius: 50%;
-    display: inline-block;
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 275px;
+    max-height: 58px;
+    object-fit: contain;
 }
 
 .menu {
     display: flex;
-    gap: 26px;
+    align-items: center;
+    gap: 0;
 }
 
 .menu a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1.08rem;
+    padding: 0 13px;
+    line-height: 1;
+    border-right: 1px solid rgba(255, 255, 255, 0.65);
     transition: 0.3s ease;
 }
 
 .menu a:hover {
-    color: #e30613;
+    color: #ffd400;
+}
+
+.menu a:nth-last-child(2) {
+    border-right: none;
+}
+
+.btn-header {
+    margin-left: 15px;
+    padding: 17px 38px !important;
+    background: #c80024;
+    color: #ffffff !important;
+    border-right: none !important;
+    font-weight: 700;
+}
+
+.btn-header:hover {
+    background: #a9001e;
+    color: #ffffff !important;
 }
 
 .fondo-seccion {
@@ -497,39 +525,277 @@ body {
     margin-top: 28px;
 }
 
+.modal-contacto {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0, 15, 30, 0.82);
+    padding: 40px 0;
+    overflow-y: auto;
+}
+
+.modal-contacto.activo {
+    display: block;
+}
+
+.modal-contenido {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    position: relative;
+    background: #f4f7fb;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.cerrar-formulario {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #d90429;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.cerrar-formulario:hover {
+    background: #a80018;
+}
+
+.contacto-seccion {
+    background: #f4f7fb;
+    color: #002b5c;
+}
+
+.contacto-header {
+    background: #eef3f8;
+    padding: 58px 0 46px;
+    text-align: center;
+}
+
+.contacto-header h2 {
+    color: #003b78;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1;
+    margin-bottom: 22px;
+    font-weight: 800;
+}
+
+.contacto-header p {
+    max-width: 1120px;
+    margin: 0 auto;
+    color: #002b5c;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.contacto-contenido {
+    padding: 70px 0;
+}
+
+.formulario-contacto {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    padding: 42px;
+    box-shadow: 0 20px 50px rgba(0, 47, 74, 0.18);
+    border-top: 8px solid #d90429;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 28px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    color: #002b5c;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.campo label span {
+    color: #d90429;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #d8e0ea;
+    background: #ffffff;
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: #1d1d1d;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #003b78;
+    box-shadow: 0 0 0 3px rgba(0, 59, 120, 0.12);
+}
+
+.campo textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.campo-completo {
+    margin-top: 22px;
+}
+
+.autorizacion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    color: #002b5c;
+    font-size: 1rem;
+}
+
+.autorizacion input {
+    width: 17px;
+    height: 17px;
+}
+
+.politica-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #003b78;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.politica-link:hover {
+    color: #d90429;
+}
+
+.btn-formulario {
+    margin-top: 24px;
+    width: 290px;
+    max-width: 100%;
+    border: none;
+    background: #ffd400;
+    color: #001b38;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-formulario:hover {
+    background: #e6bd00;
+    transform: translateY(-3px);
+}
+
 .footer {
     background: #003b78;
-    padding: 42px 0;
+    padding: 34px 0;
+    color: #ffffff;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 44px;
+    align-items: flex-start;
 }
 
-.footer h3 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
+.footer-logo img {
+    width: 190px;
+    max-height: 55px;
+    object-fit: contain;
 }
 
-.footer p {
-    font-size: 0.95rem;
-    line-height: 1.7;
+.footer-col h3 {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+    font-weight: 800;
+}
+
+.footer-col p,
+.footer-col a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    margin-bottom: 4px;
+}
+
+.footer-col a:hover {
+    color: #ffd400;
+}
+
+.redes {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.redes a {
+    width: 25px;
+    height: 25px;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.redes a:hover {
+    color: #ffd400;
 }
 
 @media (max-width: 992px) {
 
-    .header {
-        padding: 16px 5%;
+    .header-contenedor {
         flex-direction: column;
-        gap: 14px;
+        gap: 18px;
+        padding: 18px 0;
+    }
+
+    .logo-img {
+        width: 230px;
     }
 
     .menu {
-        gap: 18px;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 12px;
+    }
+
+    .menu a {
+        border-right: none;
+        padding: 8px 6px;
+    }
+
+    .btn-header {
+        margin-left: 0;
+        padding: 12px 28px !important;
     }
 
     .fondo-seccion {
@@ -560,10 +826,6 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .seguro-card h3 {
-        font-size: 1.35rem;
-    }
-
     .testimonios-grid {
         grid-template-columns: 1fr;
         max-width: 540px;
@@ -572,35 +834,39 @@ body {
 
     .testimonio img {
         height: 340px;
-        object-position: center top;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 600px) {
 
     .header {
-        padding: 18px 5%;
-        flex-direction: column;
-        gap: 16px;
         position: relative;
     }
 
-    .logo {
-        font-size: 0.95rem;
+    .logo-img {
+        width: 210px;
     }
 
     .menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
+        gap: 8px;
     }
 
     .menu a {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-header {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
     }
 
     .contenedor {
@@ -643,7 +909,8 @@ body {
         line-height: 1.15;
     }
 
-    .beneficios {
+    .beneficios,
+    .seguros-grid {
         grid-template-columns: 1fr;
     }
 
@@ -651,23 +918,7 @@ body {
         min-height: auto;
     }
 
-    .card h3 {
-        font-size: 1.25rem;
-    }
-
-    .card p {
-        font-size: 0.95rem;
-    }
-
-    .seguros-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .seguro-card {
-        min-height: 135px;
-        padding: 24px;
-    }
-
+    .card h3,
     .seguro-card h3 {
         font-size: 1.25rem;
     }
@@ -691,10 +942,47 @@ body {
 
     .testimonio img {
         height: 260px;
-        object-position: center top;
+    }
+
+    .modal-contacto {
+        padding: 20px 0;
+    }
+
+    .modal-contenido {
+        width: 94%;
+        border-radius: 14px;
+    }
+
+    .contacto-header {
+        padding: 42px 0 34px;
+    }
+
+    .contacto-header p {
+        font-size: 0.98rem;
+    }
+
+    .contacto-contenido {
+        padding: 48px 0;
+    }
+
+    .formulario-contacto {
+        padding: 28px 20px;
     }
 
     .footer {
         text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footer-logo img {
+        margin: 0 auto;
+    }
+
+    .redes {
+        justify-content: center;
     }
 }
