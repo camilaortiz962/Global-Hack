@@ -293,7 +293,7 @@
                                 Es una ayuda real para construir mi proyecto universitario.”
                             </p>
 
-                            <h4>Laura Martinez - Beneficiaria universitaria</h4>
+                            <h4>Laura Martínez - Beneficiaria universitaria</h4>
                         </div>
                     </article>
 
@@ -374,37 +374,78 @@
             </div>
 
             <div class="contenedor contacto-contenido">
-                <form class="formulario-contacto">
+
+                <form class="formulario-contacto" id="formularioContactoValidado">
 
                     <div class="form-grid">
+
                         <div class="campo">
                             <label for="nombres">Nombres y apellidos <span>*</span></label>
-                            <input type="text" id="nombres" name="nombres" placeholder="Escribe tus nombres y apellidos" required>
+                            <input 
+                                type="text" 
+                                id="nombres" 
+                                name="nombres" 
+                                maxlength="40"
+                                placeholder="Escribe tus nombres y apellidos" 
+                                required
+                            >
+                            <small id="errorNombres"></small>
                         </div>
 
                         <div class="campo">
-                            <label for="cedula">Cédula</label>
-                            <input type="text" id="cedula" name="cedula" placeholder="Escribe el número">
+                            <label for="cedula">Cédula <span>*</span></label>
+                            <input 
+                                type="text" 
+                                id="cedula" 
+                                name="cedula" 
+                                maxlength="10"
+                                placeholder="Escribe el número" 
+                                required
+                            >
+                            <small id="errorCedula"></small>
                         </div>
 
                         <div class="campo">
-                            <label for="correo">Correo electrónico <span>*</span></label>
-                            <input type="email" id="correo" name="correo" placeholder="Escribe tu dirección de correo" required>
+                            <label for="correoContacto">Correo electrónico <span>*</span></label>
+                            <input 
+                                type="email" 
+                                id="correoContacto" 
+                                name="correoContacto" 
+                                maxlength="50"
+                                placeholder="Escribe tu dirección de correo" 
+                                required
+                            >
+                            <small id="errorCorreoContacto"></small>
                         </div>
 
                         <div class="campo">
                             <label for="telefono">Número de teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Escribe tu número">
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono" 
+                                maxlength="10"
+                                placeholder="Escribe tu número"
+                            >
+                            <small id="errorTelefono"></small>
                         </div>
 
                         <div class="campo">
-                            <label for="celular">Número de celular</label>
-                            <input type="tel" id="celular" name="celular" placeholder="Escribe tu número">
+                            <label for="celular">Número de celular <span>*</span></label>
+                            <input 
+                                type="tel" 
+                                id="celular" 
+                                name="celular" 
+                                maxlength="10"
+                                placeholder="Escribe tu número celular" 
+                                required
+                            >
+                            <small id="errorCelular"></small>
                         </div>
 
                         <div class="campo">
-                            <label for="ciudad">Ciudad</label>
-                            <select id="ciudad" name="ciudad">
+                            <label for="ciudad">Ciudad <span>*</span></label>
+                            <select id="ciudad" name="ciudad" required>
                                 <option value="">Selecciona tu ciudad</option>
                                 <option value="bogota">Bogotá</option>
                                 <option value="medellin">Medellín</option>
@@ -415,11 +456,12 @@
                                 <option value="pereira">Pereira</option>
                                 <option value="otra">Otra</option>
                             </select>
+                            <small id="errorCiudad"></small>
                         </div>
 
                         <div class="campo">
-                            <label for="consulta">Tipo de consulta</label>
-                            <select id="consulta" name="consulta">
+                            <label for="consulta">Tipo de consulta <span>*</span></label>
+                            <select id="consulta" name="consulta" required>
                                 <option value="">Selecciona una opción</option>
                                 <option value="mayor-informacion">Mayor información</option>
                                 <option value="asesoria">Solicitar asesoría</option>
@@ -427,6 +469,7 @@
                                 <option value="sugerencia">Sugerencias</option>
                                 <option value="otro">Otro</option>
                             </select>
+                            <small id="errorConsulta"></small>
                         </div>
 
                         <div class="campo">
@@ -440,6 +483,7 @@
                                 <option value="referido">Amigo o familiar</option>
                                 <option value="otro">Otro</option>
                             </select>
+                            <small id="errorEnterado"></small>
                         </div>
 
                         <div class="campo">
@@ -457,24 +501,34 @@
                                 <option value="globaluniversidad-posgrado-plus">GlobalUniversidad Posgrado Plus</option>
                             </select>
                         </div>
+
                     </div>
 
                     <div class="campo campo-completo">
                         <label for="mensaje">Sugerencias y observaciones</label>
-                        <textarea id="mensaje" name="mensaje" placeholder="Escribe tus sugerencias y/o tus observaciones"></textarea>
+                        <textarea 
+                            id="mensaje" 
+                            name="mensaje" 
+                            maxlength="250"
+                            placeholder="Escribe tus sugerencias y/o tus observaciones"
+                        ></textarea>
+                        <small id="contadorMensaje">0 / 250 caracteres</small>
                     </div>
 
                     <div class="autorizacion">
                         <input type="checkbox" id="datos" required>
                         <label for="datos">Acepto el tratamiento de datos personales.</label>
                     </div>
+                    <small id="errorDatos"></small>
 
                     <a href="https://www.globalseguroscolombia.com/tratamiento-de-datos-personales/" target="_blank" class="politica-link">
                         Ver política de tratamiento de datos
                     </a>
 
                     <button type="submit" class="btn-formulario">Enviar</button>
+
                 </form>
+
             </div>
 
         </div>

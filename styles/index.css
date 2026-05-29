@@ -781,6 +781,21 @@ body.modal-seguro-abierto {
     cursor: pointer;
 }
 
+.campo small,
+#errorDatos,
+#contadorMensaje {
+    display: block;
+    min-height: 18px;
+    margin-top: 6px;
+    color: #d90429;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+#contadorMensaje {
+    color: #003b78;
+}
+
 .footer {
     background: #003b78;
     padding: 34px 0;
