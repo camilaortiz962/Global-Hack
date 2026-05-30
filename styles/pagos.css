@@ -1,156 +1,326 @@
-.seccion-formulario{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    width:100%;
-    height:100%;
+html {
+    scroll-behavior: smooth;
+}
 
-    background:#ffffff;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #020908;
+    color: #ffffff;
+    overflow-x: hidden;
+}
 
-    border-radius:30px;
+body.modal-abierto {
+    overflow: hidden;
+}
 
-    padding:30px;
+.contenedor {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.bg-pagos {
+    background-image: url(../Imagenes/fondo\ pagos.png);
+    background-position:center right;
+}
+
+.header {
+    width: 100%;
+    min-height: 86px;
+    padding: 0;
+    background: #002f4a;
+    border-top: 6px solid #77a9c9;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.header-contenedor {
+    width: min(1280px, 92%);
+    min-height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fondo-seccion {
+    width: 100%;
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-right: 120px;
 
 }
 
-.pasos{
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.logo-img {
+    width: 275px;
+    max-height: 58px;
+    object-fit: contain;
+}
 
-    margin-bottom:25px;
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.08rem;
+    padding: 0 13px;
+    line-height: 1;
+    border-right: 1px solid rgba(255, 255, 255, 0.65);
+    transition: 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffd400;
+}
+
+.menu a:nth-last-child(2) {
+    border-right: none;
+}
+
+.btn-header {
+    margin-left: 15px;
+    padding: 17px 38px !important;
+    background: #c80024;
+    color: #ffffff !important;
+    border-right: none !important;
+    font-weight: 700;
+}
+
+.btn-header:hover {
+    background: #a9001e;
+    color: #ffffff !important;
+}
+
+
+.fondo-seccion {
+    width: 100%;
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-right: 120px;
 
 }
 
-.paso{
-
-    width:38px;
-    height:38px;
-
-    border-radius:50%;
-
-    background:#d8d8d8;
-
-    color:white;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-weight:bold;
-
+.seccion-formulario {
+    width: 420px;
+    background: #f2f2f2;
+    border-radius: 35px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
-.paso.activo{
-
-    background:#0057b8;
-
+.paso-contenido {
+    display: none;
 }
 
-.linea{
-
-    width:80px;
-    height:3px;
-
-    background:#d8d8d8;
-
+.paso-contenido.mostrar {
+    display: block;
 }
 
-.seccion-formulario h2{
-
-    text-align:center;
-
-    color:#003366;
-
-    margin-bottom:25px;
-
+.pasos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
-.grupo{
-
-    margin-bottom:15px;
-
+.paso {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
-.grupo label{
-
-    display:block;
-
-    margin-bottom:6px;
-
-    font-size:14px;
-
-    color:#333;
-
+.paso.activo {
+    background: #780000;
 }
 
-.grupo input{
-
-    width:100%;
-
-    padding:12px;
-
-    border:1px solid #dcdcdc;
-
-    border-radius:8px;
-
-    font-size:14px;
-
+.linea {
+    width: 80px;
+    height: 3px;
+    background: #d0d0d0;
 }
 
-.grupo input:focus{
-
-    outline:none;
-
-    border-color:#0057b8;
-
+.seccion-formulario h2 {
+    text-align: center;
+    color: #780000;
+    margin-bottom: 20px;
 }
 
-.error{
-
-    border:2px solid #e53935 !important;
-
-    background:#fff5f5;
-
+.grupo {
+    margin-bottom: 15px;
 }
 
-small{
-
-    color:#e53935;
-
-    font-size:12px;
-
-    display:block;
-
-    margin-top:4px;
-
-    min-height:15px;
-
+.grupo label {
+    display: block;
+    color: #780000;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-#continuar{
-
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#0057b8;
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    margin-top:10px;
-
+.grupo input,
+.panel-pago input,
+.panel-pago select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #d8c3c3;
+    color: #333;
 }
 
-#continuar:hover{
+small {
+    display: block;
+    min-height: 18px;
+    color: #d90429;
+    font-size: 12px;
+    margin-top: 4px;
+}
 
-    background:#003f87;
+.error {
+    border: 2px solid #d90429 !important;
+    background: #fff0f0 !important;
+}
 
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: #780000;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #d90429;
+}
+
+.resumen-seguro {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    color: #333;
+}
+
+.alerta {
+    background: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.precio {
+    text-align: center;
+    font-size: 30px;
+    color: #780000;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.metodos {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.subtitulo {
+    color: #780000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.metodos h3 {
+    grid-column: span 4;
+    text-align: center;
+    color: #780000;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.metodo {
+    background: white;
+    border: 2px solid #d0d0d0;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+.metodo.activo {
+    background: #780000;
+    color: white;
+    border-color: #780000;
+}
+
+.panel-pago {
+    display: none;
+    margin-top: 15px;
+}
+
+.panel-pago.mostrar {
+    display: block;
+}
+
+.fila {
+    display: flex;
+    gap: 10px;
+}
+
+.confirmacion {
+    margin-top: 20px;
+    color: #333;
+}
+
+.confirmacion label {
+    display: flex;
+    gap: 10px;
+}
+
+.confirmacion input {
+    width: auto;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#volver {
+    background: #666;
 }
