@@ -32,4 +32,17 @@ if (botonAceptar) {
             window.location.href = "index.html#beneficios";
         }
     });
+
 }
+
+
+}
+
+const boton = document.getElementById("botonAceptar");
+
+boton.addEventListener("click", () => {
+
+    alert("Confirmado correctamente");
+
+    });
+
