@@ -339,8 +339,12 @@ button:hover {
 }
 
 
+.modal-compra {
+
+
 .modal-compra,
 .modal-compra[hidden] {
+
     display: none !important;
 }
 
