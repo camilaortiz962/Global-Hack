@@ -94,7 +94,7 @@ body {
     color: darkred;
     font-size: 28px;
     margin-bottom: 10px;
-
+}
 .bg-compra {
     background-image: url("../Imagenes/fondo compra.png");
     background-position: center;
@@ -144,7 +144,7 @@ body {
 
 .confirmacion h3{
     font-size: 30px;
-
+}
 .confirmacion h3 {
     font-size: clamp(1.8rem, 3vw, 2.3rem);
 
@@ -153,9 +153,6 @@ body {
     margin-bottom: 34px;
     font-weight: 900;
 }
-
-
-button{
 
 button {
 
