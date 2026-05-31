@@ -19,8 +19,6 @@ body.modal-abierto {
     overflow: hidden;
 }
 
-/* HEADER */
-
 .header {
     width: 100%;
     min-height: 86px;
@@ -78,8 +76,6 @@ body.modal-abierto {
     background: #a9001e;
 }
 
-/* FONDO */
-
 .fondo-seccion {
     position: relative;
     width: 100%;
@@ -99,8 +95,6 @@ body.modal-abierto {
     background-position: center right;
 }
 
-/* CAPA OSCURA */
-
 .overlay {
     position: absolute;
     inset: 0;
@@ -112,8 +106,6 @@ body.modal-abierto {
         rgba(0, 0, 0, 0.78)
     );
 }
-
-/* FORMULARIO */
 
 .seccion-formulario {
     position: relative;
@@ -214,8 +206,6 @@ small {
     border: 2px solid #d90429 !important;
     background: #fff0f0 !important;
 }
-
-/* BOTONES */
 
 button {
     width: 100%;
@@ -350,8 +340,6 @@ button:hover {
     margin-top: 20px;
 }
 
-/* MODAL COMPRA */
-
 .modal-compra {
     display: none !important;
     position: fixed;
@@ -419,8 +407,6 @@ button:hover {
     background: #a9001e;
     transform: translateY(-3px);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 992px) {
     .header-contenedor {
