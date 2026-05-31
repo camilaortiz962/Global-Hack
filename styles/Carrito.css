@@ -66,12 +66,10 @@ body {
     background: #c80024;
     color: #ffffff !important;
     font-weight: 700;
-    border-radius: 0;
 }
 
 .btn-header:hover {
     background: #a9001e;
-    color: #ffffff !important;
 }
 
 .fondo-seccion {
