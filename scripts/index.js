@@ -215,6 +215,22 @@ const seguros = {
     ["Ver clausulado", "PDFs/Póliza-GlobalUniversidad-Posgrado-Plus.pdf"],
     ["Ver tarifas", "PDFs/GS-Tarifas-Posgrados-1.pdf"]
     ]
+    },
+
+    futuroDigital: {
+    titulo: "GlobalFuturo Digital",
+    intro: "Seguro educativo experimental diseñado para familias que desean preparar desde hoy el futuro académico de sus hijos en carreras digitales, tecnológicas e innovadoras.",
+    bloques: [
+        ["Cobertura educativa", "Permite proyectar un respaldo económico para programas universitarios relacionados con tecnología, desarrollo de software, inteligencia artificial, ciencia de datos, diseño digital e innovación."],
+        ["Lugar de cobertura", "Aplica para instituciones de educación superior en Colombia que ofrezcan programas afines al sector digital y tecnológico."],
+        ["Periodos de cobertura", "Cubre hasta ocho (8) periodos académicos semestrales, según las condiciones simuladas del producto."],
+        ["Trámite de pago", "El pago sería realizado directamente a la institución educativa seleccionada por el beneficiario."],
+        ["Beneficio adicional", "Incluye acompañamiento simulado para orientación académica en áreas digitales."],
+        ["Estado del producto", "Producto en construcción. Esta opción se usa para validar la página de error 404."]
+    ],
+    links: [
+        ["Ver información", "seguro-futuro-digital.html"]
+    ]
     }
 };
 
@@ -288,6 +304,11 @@ if (modalSeguro) {
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn-enviar-seguro")) {
         const productoSeleccionado = event.target.dataset.producto;
+
+        if (productoSeleccionado === "futuroDigital") {
+            window.location.href = "seguro-futuro-digital.html";
+            return;
+        }
 
         window.location.href = `Carrito.html?producto=${productoSeleccionado}`;
     }
