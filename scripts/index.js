@@ -432,3 +432,93 @@ if (formularioContactoValidado) {
         }
     });
 }
+
+const beneficiosInfo = {
+    planeacion: {
+        titulo: "Planeación anticipada",
+        texto: "La planeación anticipada permite que madres, padres o acudientes preparen desde hoy los recursos necesarios para la educación superior del beneficiario.",
+        puntos: [
+            "Facilita la organización financiera familiar desde edades tempranas.",
+            "Permite proyectar con tiempo el acceso del hijo o hija a la universidad.",
+            "Reduce la presión económica cuando llegue el momento de iniciar los estudios superiores.",
+            "Ayuda a convertir la educación universitaria en una meta planificada y respaldada."
+        ]
+    },
+
+    respaldo: {
+        titulo: "Respaldo para la universidad",
+        texto: "Este beneficio ofrece un apoyo económico orientado al pago de estudios superiores cuando el beneficiario llegue a la etapa universitaria.",
+        puntos: [
+            "Contribuye al pago de la matrícula universitaria según el producto contratado.",
+            "Brinda una alternativa de apoyo frente al aumento de los costos educativos.",
+            "Permite contar con una solución pensada específicamente para la educación superior.",
+            "Acompaña a la familia en una de las etapas más importantes del proyecto académico."
+        ]
+    },
+
+    proteccion: {
+        titulo: "Protección del proyecto de vida",
+        texto: "La protección del proyecto de vida busca mantener la continuidad del sueño universitario del beneficiario, incluso ante posibles cambios o dificultades económicas.",
+        puntos: [
+            "Ayuda a proteger la meta de ingreso a la educación superior.",
+            "Permite que el beneficiario conserve una ruta de formación académica.",
+            "Aporta estabilidad frente a escenarios que puedan afectar la capacidad de pago familiar.",
+            "Refuerza la importancia de la educación como parte del futuro personal y profesional."
+        ]
+    },
+
+    tranquilidad: {
+        titulo: "Tranquilidad para la familia",
+        texto: "Este beneficio ofrece confianza a madres, padres y acudientes al saber que están tomando una decisión preventiva para el futuro educativo de sus hijos.",
+        puntos: [
+            "Permite planear el futuro universitario con mayor seguridad.",
+            "Disminuye la incertidumbre financiera asociada al pago de estudios superiores.",
+            "Brinda confianza al contar con una solución educativa respaldada.",
+            "Fortalece la tranquilidad familiar al anticiparse a una necesidad futura."
+        ]
+    }
+};
+
+const tarjetasBeneficio = document.querySelectorAll(".abrir-beneficio");
+const modalBeneficio = document.querySelector("#modalBeneficio");
+const cerrarBeneficio = document.querySelector(".cerrar-beneficio");
+const beneficioTitulo = document.querySelector("#beneficioTitulo");
+const beneficioTexto = document.querySelector("#beneficioTexto");
+const beneficioContenido = document.querySelector("#beneficioContenido");
+
+tarjetasBeneficio.forEach((tarjeta) => {
+    tarjeta.addEventListener("click", () => {
+        const beneficioId = tarjeta.dataset.beneficio;
+        const beneficio = beneficiosInfo[beneficioId];
+
+        if (!beneficio) return;
+
+        beneficioTitulo.textContent = beneficio.titulo;
+        beneficioTexto.textContent = beneficio.texto;
+
+        beneficioContenido.innerHTML = `
+            <ul>
+                ${beneficio.puntos.map((punto) => `<li>${punto}</li>`).join("")}
+            </ul>
+        `;
+
+        modalBeneficio.classList.add("activo");
+        document.body.classList.add("modal-beneficio-abierto");
+    });
+});
+
+if (cerrarBeneficio) {
+    cerrarBeneficio.addEventListener("click", () => {
+        modalBeneficio.classList.remove("activo");
+        document.body.classList.remove("modal-beneficio-abierto");
+    });
+}
+
+if (modalBeneficio) {
+    modalBeneficio.addEventListener("click", (event) => {
+        if (event.target === modalBeneficio) {
+            modalBeneficio.classList.remove("activo");
+            document.body.classList.remove("modal-beneficio-abierto");
+        }
+    });
+}
