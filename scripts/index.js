@@ -1,3 +1,4 @@
+
 const preguntas = document.querySelectorAll(".faq-pregunta");
 
 preguntas.forEach((pregunta) => {
@@ -244,7 +245,6 @@ tarjetasSeguro.forEach((tarjeta) => {
             `;
         }).join("");
 
-
         modalLinks.innerHTML = seguro.links.map((link) => {
             return `<a href="${link[1]}" target="_blank">${link[0]}</a>`;
         }).join("");
@@ -262,7 +262,6 @@ tarjetasSeguro.forEach((tarjeta) => {
         </button>
     </div>
 `;
-
 
         modalSeguro.classList.add("activo");
         document.body.classList.add("modal-seguro-abierto");
@@ -284,6 +283,7 @@ if (modalSeguro) {
         }
     });
 }
+
 
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn-enviar-seguro")) {
@@ -323,9 +323,14 @@ if (formularioContactoValidado) {
 
         nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
 
+
+
+        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+
         nombres.value = nombres.value
             .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
             .slice(0, 40);
+
 
 
         if (nombres.value.trim().length < 5) {
@@ -345,6 +350,7 @@ if (formularioContactoValidado) {
             errorCedula.textContent = "";
         }
     });
+
 
     cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
 
@@ -425,10 +431,12 @@ if (formularioContactoValidado) {
             formularioValido = false;
         }
 
+
         if (cedula.value.length < 8 || cedula.value.length > 10) {
             errorCedula.textContent = "La cédula debe tener entre 8 y 10 números.";
             formularioValido = false;
         } 
+
 
 
         const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -473,8 +481,10 @@ if (formularioContactoValidado) {
             formularioContactoValidado.reset();
             contadorMensaje.textContent = "0 / 250 caracteres";
 
+
             modalFormulario.classList.remove("activo");
             document.body.classList.remove("modal-abierto");
+
 
         } else {
             alert("Por favor revise los campos del formulario.");
@@ -571,4 +581,5 @@ if (modalBeneficio) {
             document.body.classList.remove("modal-beneficio-abierto");
         }
     });
+
 }
