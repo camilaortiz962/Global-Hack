@@ -1,48 +1,45 @@
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/Carrito.css">
     <title>Confirmación | Global Seguros</title>
-
+    <link rel="stylesheet" href="styles/Carrito.css">
 </head>
+
 <body>
-    <script src="Carrito.js"></script>
-<header class="header">
+
+    <header class="header">
         <div class="header-contenedor">
 
-            <a href="#inicio" class="logo-link">
+            <a href="index.html#inicio" class="logo-link">
                 <img src="Imagenes/global logo.png" alt="Global Seguros" class="logo-img">
             </a>
 
             <nav class="menu">
-                <a href="#inicio">Inicio</a>
-                <a href="#beneficios">Beneficios</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#footer">Contacto</a>
-                <a href="#" class="btn-header abrir-formulario" data-tipo="Agenda tu cita">Registrarse</a>
+                <a href="index.html#inicio">Inicio</a>
+                <a href="index.html#beneficios-info">Beneficios</a>
+                <a href="index.html#testimonios">Testimonios</a>
+                <a href="index.html#footer">Contacto</a>
+                <a href="InicioS.html" class="btn-header">Registrarse</a>
             </nav>
 
         </div>
     </header>
 
-
-
-   <section class="hero fondo-seccion bg-compra" id="carrito">
-            <div class="overlay"></div>
+    <section class="hero fondo-seccion bg-compra" id="carrito">
+        <div class="overlay"></div>
 
         <div class="confirmacion">
 
             <h2>CONFIRMACIÓN</h2>
 
             <p class="texto">
-                Porfavor confirme su elección antes de continuar con su pago
+                Por favor confirme su elección antes de continuar con su pago.
             </p>
 
-            <h3>
-                GlobalUniversidad<br>
-                Garantizada Platino
+            <h3 id="productoSeleccionado">
+                Producto seleccionado
             </h3>
 
             <button id="botonAceptar">
@@ -50,9 +47,9 @@
             </button>
 
         </div>
-
     </section>
 
+    <script src="scripts/Carrito.js"></script>
 
 </body>
 </html>
