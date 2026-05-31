@@ -287,41 +287,6 @@ document.addEventListener("click", (event) => {
     }
 });
 
-document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("btn-enviar-seguro")) {
-        const productoSeleccionado = event.target.dataset.producto;
-
-        const productosFormulario = {
-            platino: "globaluniversidad-garantizada-platino",
-            garantizada: "globaluniversidad-garantizada",
-            semestres: "globalsemestres",
-            flex: "globaleducacion-flex",
-            seguraPlus: "globaluniversidad-segura-plus",
-            seguraPlusSemestres: "globaluniversidad-segura-plus-semestres",
-            masProfesional: "globalmas-profesional",
-            posgrado: "globaluniversidad-posgrado",
-            posgradoPlus: "globaluniversidad-posgrado-plus"
-        };
-
-        const producto = document.querySelector("#producto");
-        const consulta = document.querySelector("#consulta");
-
-        if (producto && productosFormulario[productoSeleccionado]) {
-            producto.value = productosFormulario[productoSeleccionado];
-        }
-
-        if (consulta) {
-            consulta.value = "producto";
-        }
-
-        modalSeguro.classList.remove("activo");
-        document.body.classList.remove("modal-seguro-abierto");
-
-        modalFormulario.classList.add("activo");
-        document.body.classList.add("modal-abierto");
-    }
-});
-
 const formularioContactoValidado = document.querySelector("#formularioContactoValidado");
 
 const nombres = document.querySelector("#nombres");
