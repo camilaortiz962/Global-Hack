@@ -27,18 +27,9 @@ if (tituloProducto) {
 if (botonAceptar) {
     botonAceptar.addEventListener("click", () => {
         if (producto && productosCarrito[producto]) {
-            alert("Confirmado correctamente");
             window.location.href = `Pago.html?producto=${producto}`;
         } else {
-            alert("Debe seleccionar un producto antes de continuar.");
             window.location.href = "index.html#beneficios";
         }
     });
 }
-
-const boton = document.getElementById("botonAceptar");
-
-boton.addEventListener("click", () => {
-
-    alert("Confirmado correctamente");
-    });
