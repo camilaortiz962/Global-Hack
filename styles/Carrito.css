@@ -123,8 +123,6 @@ body.modal-abierto {
     border-radius: 50px;
 }
 
-
-
 .confirmacion h2{
     text-align: center;
     color: darkred;
@@ -140,7 +138,6 @@ body.modal-abierto {
     margin-bottom: 30px;
 }
 
-
 .confirmacion h3{
     font-size: 30px;
     color: #303030;
@@ -148,7 +145,6 @@ body.modal-abierto {
 
     margin-bottom: 30px;
 }
-
 
 button{
     display: block;
