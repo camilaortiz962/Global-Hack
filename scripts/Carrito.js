@@ -1,3 +1,4 @@
+
 const productosCarrito = {
     platino: "GlobalUniversidad Garantizada Platino",
     garantizada: "GlobalUniversidad Garantizada",
@@ -39,9 +40,14 @@ if (botonAceptar) {
 
 }
 
+
 const boton = document.getElementById("botonAceptar");
 
 boton.addEventListener("click", () => {
 
     alert("Confirmado correctamente");
+
     });
+
+    });
+
