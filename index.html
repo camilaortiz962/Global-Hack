@@ -18,7 +18,7 @@
 
             <nav class="menu">
                 <a href="#inicio">Inicio</a>
-                <a href="#beneficios">Beneficios</a>
+                <a href="#beneficios-info">Beneficios</a>
                 <a href="#testimonios">Testimonios</a>
                 <a href="#footer">Contacto</a>
                 <a href="InicioS.html" class="btn-header">Registrarse</a>
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        <section class="sobre fondo-seccion bg-birrete">
+        <section class="sobre fondo-seccion bg-birrete" id="beneficios-info">
             <div class="overlay"></div>
 
             <div class="contenedor sobre-grid">
@@ -70,25 +70,27 @@
                     </div>
 
                     <div class="beneficios">
-                        <article class="card">
+
+                        <article class="card abrir-beneficio" data-beneficio="planeacion">
                             <h3>Planeación anticipada</h3>
                             <p>Permite asegurar desde hoy los recursos para la futura etapa universitaria del beneficiario.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card abrir-beneficio" data-beneficio="respaldo">
                             <h3>Respaldo para la universidad</h3>
                             <p>Brinda apoyo económico para el pago de estudios superiores cuando llegue el momento.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card abrir-beneficio" data-beneficio="proteccion">
                             <h3>Protección del proyecto de vida</h3>
                             <p>Ayuda a mantener la continuidad del sueño universitario del hijo o hija.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card abrir-beneficio" data-beneficio="tranquilidad">
                             <h3>Tranquilidad para la familia</h3>
                             <p>Ofrece confianza a madres, padres y acudientes al planear el futuro educativo.</p>
                         </article>
+
                     </div>
                 </div>
             </div>
@@ -257,62 +259,77 @@
         </section>
 
         <section class="testimonios fondo-seccion bg-lupa" id="testimonios">
-            <div class="overlay"></div>
+    <div class="overlay"></div>
 
-            <div class="contenedor">
-                <div class="barra-roja centrada"></div>
+    <div class="contenedor">
+        <div class="barra-roja centrada"></div>
 
-                <h2>Testimonios</h2>
+        <h2>Testimonios</h2>
 
-                <p class="intro">
-                    Familias y beneficiarios que encontraron en Global Seguros una forma de planear con anticipación
-                    la educación universitaria.
-                </p>
+        <p class="intro">
+            Familias y beneficiarios que encontraron en Global Seguros una forma de planear con anticipación
+            la educación universitaria y proteger el futuro académico de sus hijos.
+        </p>
 
-                <div class="testimonios-grid">
+        <div class="testimonios-grid">
 
-                    <article class="testimonio">
-                        <img src="Imagenes/testimonio 1.jpg" alt="Testimonio 1">
-
-                        <div class="testimonio-texto">
-                            <p>
-                                “Adquirí esta solución pensando en el futuro de mi hijo. Me dio tranquilidad saber que
-                                desde pequeño podía dejar asegurado un respaldo para su universidad.”
-                            </p>
-
-                            <h4>Daniel Ruiz - Padre de familia</h4>
-                        </div>
-                    </article>
-
-                    <article class="testimonio">
-                        <img src="Imagenes/testimonio 2.jpg" alt="Testimonio 2">
-
-                        <div class="testimonio-texto">
-                            <p>
-                                “Mis padres tomaron este seguro cuando yo era niña y hoy lo veo como una gran decisión.
-                                Es una ayuda real para construir mi proyecto universitario.”
-                            </p>
-
-                            <h4>Laura Martínez - Beneficiaria universitaria</h4>
-                        </div>
-                    </article>
-
-                    <article class="testimonio">
-                        <img src="Imagenes/testimonio 3.png" alt="Testimonio 3">
-
-                        <div class="testimonio-texto">
-                            <p>
-                                “Lo que más valoro es la posibilidad de planear con tiempo. Es una herramienta muy útil
-                                para asegurar la educación superior de nuestros hijos.”
-                            </p>
-
-                            <h4>Camila Torres - Madre de familia</h4>
-                        </div>
-                    </article>
-
+            <article class="testimonio">
+                <div class="testimonio-img">
+                    <img src="Imagenes/testimonio 1.jpg" alt="Testimonio 1">
                 </div>
-            </div>
-        </section>
+
+                <div class="testimonio-texto">
+                    <p>
+                        “Adquirí esta solución pensando en el futuro de mi hijo. Para mí fue importante empezar a planear
+                        desde temprano, porque sé que la universidad representa una etapa decisiva en su vida. Este seguro
+                        me dio tranquilidad al saber que podía dejar asegurado un respaldo económico para cuando llegue
+                        el momento de iniciar sus estudios superiores.”
+                    </p>
+
+                    <h4>Daniel Ruiz</h4>
+                    <span>Padre de familia</span>
+                </div>
+            </article>
+
+            <article class="testimonio">
+                <div class="testimonio-img">
+                    <img src="Imagenes/testimonio 2.jpg" alt="Testimonio 2">
+                </div>
+
+                <div class="testimonio-texto">
+                    <p>
+                        “Mis padres tomaron este seguro cuando yo era niña y hoy entiendo el valor de esa decisión.
+                        Gracias a esa planeación, pude contar con una ayuda real para avanzar en mi proyecto universitario.
+                        Más que un apoyo económico, fue una forma de sentir que mi familia había pensado en mi futuro con
+                        responsabilidad y anticipación.”
+                    </p>
+
+                    <h4>Laura Martínez</h4>
+                    <span>Beneficiaria universitaria</span>
+                </div>
+            </article>
+
+            <article class="testimonio">
+                <div class="testimonio-img">
+                    <img src="Imagenes/testimonio 3.png" alt="Testimonio 3">
+                </div>
+
+                <div class="testimonio-texto">
+                    <p>
+                        “Lo que más valoro es la posibilidad de planear con tiempo. Como madre, sé que los costos de la
+                        educación superior pueden ser un reto para cualquier familia. Contar con una solución pensada para
+                        respaldar la universidad de nuestros hijos nos permite tomar decisiones con más confianza y mirar
+                        el futuro con mayor tranquilidad.”
+                    </p>
+
+                    <h4>Camila Torres</h4>
+                    <span>Madre de familia</span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
 
         <section class="cta fondo-seccion bg-globo">
             <div class="overlay"></div>
@@ -353,6 +370,22 @@
             <div class="modal-seguro-body" id="modalContenido"></div>
 
             <div class="modal-seguro-links" id="modalLinks"></div>
+
+        </div>
+    </section>
+
+    <section class="modal-beneficio" id="modalBeneficio">
+        <div class="modal-beneficio-contenido">
+
+            <button class="cerrar-beneficio" type="button">×</button>
+
+            <div class="modal-beneficio-header">
+                <div class="barra-roja"></div>
+                <h2 id="beneficioTitulo"></h2>
+                <p id="beneficioTexto"></p>
+            </div>
+
+            <div class="modal-beneficio-body" id="beneficioContenido"></div>
 
         </div>
     </section>
@@ -419,17 +452,16 @@
                         </div>
 
                         <div class="campo">
-                            <label for="telefono">Número de teléfono</label>
-                            <input 
-                                type="tel" 
-                                id="telefono" 
-                                name="telefono" 
-                                maxlength="10"
-                                placeholder="Escribe tu número"
-                            >
+                           <label for="telefono">Número de teléfono fijo</label>
+                             <input 
+                                 type="tel" 
+                                 id="telefono" 
+                                 name="telefono" 
+                                 maxlength="10"
+                                 placeholder="Escribe tu número de teléfono fijo"
+                                 >
                             <small id="errorTelefono"></small>
                         </div>
-
                         <div class="campo">
                             <label for="celular">Número de celular <span>*</span></label>
                             <input 
@@ -572,7 +604,7 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="scripts/index.js"></script>
 
 </body>
 </html>
