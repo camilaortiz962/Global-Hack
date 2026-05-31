@@ -16,7 +16,8 @@ body {
 }
 
 body.modal-abierto,
-body.modal-seguro-abierto {
+body.modal-seguro-abierto,
+body.modal-beneficio-abierto {
     overflow: hidden;
 }
 
@@ -287,6 +288,17 @@ body.modal-seguro-abierto {
     color: #333333;
 }
 
+.abrir-beneficio {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.abrir-beneficio:hover {
+    transform: translateY(-8px);
+    background: #ffffff;
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.48);
+}
+
 .tipos-seguro {
     min-height: 760px;
 }
@@ -342,22 +354,31 @@ body.modal-seguro-abierto {
     color: #222222;
 }
 
-.modal-seguro {
+.modal-seguro,
+.modal-beneficio {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 220;
     background: rgba(0, 15, 30, 0.86);
     padding: 40px 0;
     overflow-y: auto;
 }
 
-.modal-seguro.activo {
+.modal-seguro {
+    z-index: 220;
+}
+
+.modal-beneficio {
+    z-index: 230;
+}
+
+.modal-seguro.activo,
+.modal-beneficio.activo {
     display: block;
 }
 
-.modal-seguro-contenido {
-    width: min(980px, 92%);
+.modal-seguro-contenido,
+.modal-beneficio-contenido {
     margin: 0 auto;
     background: #ffffff;
     color: #111111;
@@ -367,7 +388,16 @@ body.modal-seguro-abierto {
     box-shadow: 0 30px 85px rgba(0, 0, 0, 0.55);
 }
 
-.cerrar-seguro {
+.modal-seguro-contenido {
+    width: min(980px, 92%);
+}
+
+.modal-beneficio-contenido {
+    width: min(850px, 92%);
+}
+
+.cerrar-seguro,
+.cerrar-beneficio {
     position: absolute;
     top: 18px;
     right: 22px;
@@ -384,17 +414,20 @@ body.modal-seguro-abierto {
     font-weight: 700;
 }
 
-.cerrar-seguro:hover {
+.cerrar-seguro:hover,
+.cerrar-beneficio:hover {
     background: #a80018;
 }
 
-.modal-seguro-header {
+.modal-seguro-header,
+.modal-beneficio-header {
     padding: 44px 48px 28px;
     background: #f5f7fb;
     border-bottom: 1px solid #dfe7f1;
 }
 
-.modal-seguro-header h2 {
+.modal-seguro-header h2,
+.modal-beneficio-header h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
     color: #111111;
@@ -402,7 +435,8 @@ body.modal-seguro-abierto {
     font-weight: 900;
 }
 
-.modal-seguro-header p {
+.modal-seguro-header p,
+.modal-beneficio-header p {
     color: #333333;
     font-size: 1.08rem;
     line-height: 1.7;
@@ -456,9 +490,24 @@ body.modal-seguro-abierto {
     transform: translateY(-3px);
 }
 
+.modal-beneficio-body {
+    padding: 34px 48px 44px;
+}
+
+.modal-beneficio-body ul {
+    padding-left: 22px;
+}
+
+.modal-beneficio-body li {
+    margin-bottom: 14px;
+    color: #222222;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
 .preguntas-frecuentes {
     min-height: 760px;
-    background-color: #003b78;
+    position: relative;
 }
 
 .faq-contenedor {
@@ -468,76 +517,96 @@ body.modal-seguro-abierto {
 .faq-titulo {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 42px;
+    text-align: center;
 }
 
 .faq-titulo h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.4rem, 4vw, 4rem);
     color: #ffffff;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
 }
 
 .icono-pregunta {
-    width: 44px;
-    height: 44px;
+    width: 54px;
+    height: 54px;
     border: 3px solid #ffffff;
-    border-radius: 8px;
-    color: #e30613;
-    background: rgba(0, 59, 120, 0.7);
+    border-radius: 12px;
+    color: #d90429;
+    background: rgba(255, 255, 255, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 900;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
 }
 
 .faq-lista {
-    background: rgba(0, 54, 115, 0.92);
-    padding: 10px 28px 28px;
-    border-radius: 6px;
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.94);
+    padding: 18px 32px;
+    border-radius: 18px;
+    border-bottom: 8px solid #d90429;
+    box-shadow: 0 24px 58px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(4px);
 }
 
 .faq-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+    border-bottom: 1px solid rgba(0, 59, 120, 0.18);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
 }
 
 .faq-pregunta {
     width: 100%;
     background: transparent;
     border: none;
-    padding: 22px 0;
-    color: #ffffff;
+    padding: 24px 0;
+    color: #001b38;
     font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 900;
     text-align: left;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
+    line-height: 1.45;
+}
+
+.faq-pregunta:hover {
+    color: #d90429;
 }
 
 .faq-pregunta span {
-    min-width: 28px;
-    height: 28px;
-    background: #ffffff;
-    color: #003b78;
+    min-width: 34px;
+    height: 34px;
+    background: #ffd400;
+    color: #001b38;
     border-radius: 50%;
     font-size: 1.45rem;
     font-weight: 900;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transition: 0.3s ease;
 }
 
 .faq-item.activo .faq-pregunta {
-    color: #ffd400;
+    color: #d90429;
 }
 
 .faq-item.activo .faq-pregunta span {
-    background: #ffd400;
-    color: #003b78;
+    background: #d90429;
+    color: #ffffff;
+    transform: rotate(180deg);
 }
 
 .faq-respuesta {
@@ -548,10 +617,11 @@ body.modal-seguro-abierto {
 
 .faq-respuesta p {
     padding: 0 0 26px;
-    color: #ffffff;
+    color: #263238;
     font-size: 1rem;
-    line-height: 1.7;
-    font-weight: 600;
+    line-height: 1.75;
+    font-weight: 500;
+    max-width: 980px;
 }
 
 .testimonios {
@@ -978,26 +1048,55 @@ body.modal-seguro-abierto {
     }
 
     .modal-seguro,
+    .modal-beneficio,
     .modal-contacto {
         padding: 20px 0;
     }
 
     .modal-seguro-contenido,
+    .modal-beneficio-contenido,
     .modal-contenido {
         width: 94%;
         border-radius: 14px;
     }
 
-    .modal-seguro-header {
+    .modal-seguro-header,
+    .modal-beneficio-header {
         padding: 38px 24px 24px;
     }
 
-    .modal-seguro-body {
-        padding: 30px 24px 12px;
+    .modal-seguro-body,
+    .modal-beneficio-body {
+        padding: 30px 24px 36px;
     }
 
     .modal-seguro-links {
         padding: 10px 24px 36px;
+    }
+
+    .faq-titulo {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .faq-titulo h2 {
+        font-size: 2rem;
+    }
+
+    .faq-lista {
+        padding: 12px 20px;
+        border-radius: 14px;
+    }
+
+    .faq-pregunta {
+        font-size: 1rem;
+        padding: 20px 0;
+    }
+
+    .faq-pregunta span {
+        min-width: 30px;
+        height: 30px;
+        font-size: 1.25rem;
     }
 
     .contacto-header {

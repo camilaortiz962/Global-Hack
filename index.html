@@ -70,25 +70,27 @@
                     </div>
 
                     <div class="beneficios">
-                        <article class="card">
+
+                        <article class="card abrir-beneficio" data-beneficio="planeacion">
                             <h3>Planeación anticipada</h3>
                             <p>Permite asegurar desde hoy los recursos para la futura etapa universitaria del beneficiario.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card abrir-beneficio" data-beneficio="respaldo">
                             <h3>Respaldo para la universidad</h3>
                             <p>Brinda apoyo económico para el pago de estudios superiores cuando llegue el momento.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card abrir-beneficio" data-beneficio="proteccion">
                             <h3>Protección del proyecto de vida</h3>
                             <p>Ayuda a mantener la continuidad del sueño universitario del hijo o hija.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card abrir-beneficio" data-beneficio="tranquilidad">
                             <h3>Tranquilidad para la familia</h3>
                             <p>Ofrece confianza a madres, padres y acudientes al planear el futuro educativo.</p>
                         </article>
+
                     </div>
                 </div>
             </div>
@@ -357,6 +359,22 @@
         </div>
     </section>
 
+    <section class="modal-beneficio" id="modalBeneficio">
+        <div class="modal-beneficio-contenido">
+
+            <button class="cerrar-beneficio" type="button">×</button>
+
+            <div class="modal-beneficio-header">
+                <div class="barra-roja"></div>
+                <h2 id="beneficioTitulo"></h2>
+                <p id="beneficioTexto"></p>
+            </div>
+
+            <div class="modal-beneficio-body" id="beneficioContenido"></div>
+
+        </div>
+    </section>
+
     <section class="contacto-seccion modal-contacto" id="formularioContacto">
         <div class="modal-contenido">
 
@@ -572,7 +590,7 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="scripts/index.js"></script>
 
 </body>
 </html>
