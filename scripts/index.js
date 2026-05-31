@@ -1,3 +1,4 @@
+
 const preguntas = document.querySelectorAll(".faq-pregunta");
 
 preguntas.forEach((pregunta) => {
@@ -263,7 +264,6 @@ tarjetasSeguro.forEach((tarjeta) => {
     </div>
 `;
 
-
         modalSeguro.classList.add("activo");
         document.body.classList.add("modal-seguro-abierto");
     });
@@ -321,12 +321,16 @@ if (formularioContactoValidado) {
 
     nombres.addEventListener("input", () => {
 
+
+        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+
+
+
         nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
 
         nombres.value = nombres.value
             .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
             .slice(0, 40);
-
 
         if (nombres.value.trim().length < 5) {
             errorNombres.textContent = "Ingrese nombres y apellidos válidos. Mínimo 5 caracteres.";
@@ -336,6 +340,7 @@ if (formularioContactoValidado) {
     });
 
     cedula.addEventListener("input", () => {
+
 
         cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
 
@@ -420,6 +425,7 @@ if (formularioContactoValidado) {
             formularioValido = false;
         }
 
+
         if (cedula.value.length < 6 || cedula.value.length > 10) {
             errorCedula.textContent = "La cédula debe tener entre 6 y 10 números.";
             formularioValido = false;
@@ -429,7 +435,6 @@ if (formularioContactoValidado) {
             errorCedula.textContent = "La cédula debe tener entre 8 y 10 números.";
             formularioValido = false;
         } 
-
 
         const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -475,6 +480,12 @@ if (formularioContactoValidado) {
 
             modalFormulario.classList.remove("activo");
             document.body.classList.remove("modal-abierto");
+
+
+
+            modalFormulario.classList.remove("activo");
+            document.body.classList.remove("modal-abierto");
+
 
         } else {
             alert("Por favor revise los campos del formulario.");
@@ -569,4 +580,5 @@ if (modalBeneficio) {
             document.body.classList.remove("modal-beneficio-abierto");
         }
     });
+
 }
