@@ -86,6 +86,13 @@ body {
     background-position: center;
 }
 
+
+.confirmacion h2{
+    text-align: center;
+    color: darkred;
+    font-size: 28px;
+    margin-bottom: 10px;
+
 .bg-compra {
     background-image: url("../Imagenes/fondo compra.png");
     background-position: center;
@@ -101,6 +108,7 @@ body {
         rgba(0, 0, 0, 0.48),
         rgba(0, 0, 0, 0.78)
     );
+
 }
 
 .confirmacion {
@@ -131,15 +139,24 @@ body {
     margin-bottom: 30px;
 }
 
+
+.confirmacion h3{
+    font-size: 30px;
+
 .confirmacion h3 {
     font-size: clamp(1.8rem, 3vw, 2.3rem);
+
     color: #303030;
     line-height: 1.25;
     margin-bottom: 34px;
     font-weight: 900;
 }
 
+
+button{
+
 button {
+
     display: block;
     margin: auto;
     padding: 14px 38px;
