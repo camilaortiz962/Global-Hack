@@ -359,7 +359,7 @@ if (formularioContactoValidado) {
     } else {
         errorCedula.textContent = "";
     }
-});
+};
 
     correoContacto.addEventListener("input", () => {
         correoContacto.value = correoContacto.value.slice(0, 50);
@@ -490,8 +490,6 @@ if (formularioContactoValidado) {
             alert("Por favor revise los campos del formulario.");
         }
     });
-
-}
 
 const beneficiosInfo = {
     planeacion: {
