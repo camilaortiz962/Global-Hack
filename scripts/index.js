@@ -1,4 +1,3 @@
-
 const preguntas = document.querySelectorAll(".faq-pregunta");
 
 preguntas.forEach((pregunta) => {
@@ -245,9 +244,25 @@ tarjetasSeguro.forEach((tarjeta) => {
             `;
         }).join("");
 
+
         modalLinks.innerHTML = seguro.links.map((link) => {
             return `<a href="${link[1]}" target="_blank">${link[0]}</a>`;
         }).join("");
+
+        modalLinks.innerHTML = `
+    <div class="links-pdf-seguro">
+        ${seguro.links.map((link) => {
+            return `<a href="${link[1]}" target="_blank">${link[0]}</a>`;
+        }).join("")}
+    </div>
+
+    <div class="contenedor-boton-enviar">
+        <button class="btn-enviar-seguro" type="button" data-producto="${seguroId}">
+            Enviar
+        </button>
+    </div>
+`;
+
 
         modalSeguro.classList.add("activo");
         document.body.classList.add("modal-seguro-abierto");
@@ -269,6 +284,14 @@ if (modalSeguro) {
         }
     });
 }
+
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-enviar-seguro")) {
+        const productoSeleccionado = event.target.dataset.producto;
+
+        window.location.href = `Carrito.html?producto=${productoSeleccionado}`;
+    }
+});
 
 const formularioContactoValidado = document.querySelector("#formularioContactoValidado");
 
@@ -297,7 +320,13 @@ const contadorMensaje = document.querySelector("#contadorMensaje");
 if (formularioContactoValidado) {
 
     nombres.addEventListener("input", () => {
+
         nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+
+        nombres.value = nombres.value
+            .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
+            .slice(0, 40);
+
 
         if (nombres.value.trim().length < 5) {
             errorNombres.textContent = "Ingrese nombres y apellidos válidos. Mínimo 5 caracteres.";
@@ -307,6 +336,7 @@ if (formularioContactoValidado) {
     });
 
     cedula.addEventListener("input", () => {
+
         cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
 
         if (cedula.value.length < 6) {
@@ -315,6 +345,15 @@ if (formularioContactoValidado) {
             errorCedula.textContent = "";
         }
     });
+
+    cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+
+    if (cedula.value.length < 8) {
+        errorCedula.textContent = "La cédula debe tener mínimo 8 números.";
+    } else {
+        errorCedula.textContent = "";
+    }
+});
 
     correoContacto.addEventListener("input", () => {
         correoContacto.value = correoContacto.value.slice(0, 50);
@@ -386,6 +425,12 @@ if (formularioContactoValidado) {
             formularioValido = false;
         }
 
+        if (cedula.value.length < 8 || cedula.value.length > 10) {
+            errorCedula.textContent = "La cédula debe tener entre 8 y 10 números.";
+            formularioValido = false;
+        } 
+
+
         const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!expresionCorreo.test(correoContacto.value)) {
@@ -427,8 +472,103 @@ if (formularioContactoValidado) {
             alert("Formulario enviado correctamente.");
             formularioContactoValidado.reset();
             contadorMensaje.textContent = "0 / 250 caracteres";
+
+            modalFormulario.classList.remove("activo");
+            document.body.classList.remove("modal-abierto");
+
         } else {
             alert("Por favor revise los campos del formulario.");
+        }
+    });
+
+}
+
+const beneficiosInfo = {
+    planeacion: {
+        titulo: "Planeación anticipada",
+        texto: "La planeación anticipada permite que madres, padres o acudientes preparen desde hoy los recursos necesarios para la educación superior del beneficiario.",
+        puntos: [
+            "Facilita la organización financiera familiar desde edades tempranas.",
+            "Permite proyectar con tiempo el acceso del hijo o hija a la universidad.",
+            "Reduce la presión económica cuando llegue el momento de iniciar los estudios superiores.",
+            "Ayuda a convertir la educación universitaria en una meta planificada y respaldada."
+        ]
+    },
+
+    respaldo: {
+        titulo: "Respaldo para la universidad",
+        texto: "Este beneficio ofrece un apoyo económico orientado al pago de estudios superiores cuando el beneficiario llegue a la etapa universitaria.",
+        puntos: [
+            "Contribuye al pago de la matrícula universitaria según el producto contratado.",
+            "Brinda una alternativa de apoyo frente al aumento de los costos educativos.",
+            "Permite contar con una solución pensada específicamente para la educación superior.",
+            "Acompaña a la familia en una de las etapas más importantes del proyecto académico."
+        ]
+    },
+
+    proteccion: {
+        titulo: "Protección del proyecto de vida",
+        texto: "La protección del proyecto de vida busca mantener la continuidad del sueño universitario del beneficiario, incluso ante posibles cambios o dificultades económicas.",
+        puntos: [
+            "Ayuda a proteger la meta de ingreso a la educación superior.",
+            "Permite que el beneficiario conserve una ruta de formación académica.",
+            "Aporta estabilidad frente a escenarios que puedan afectar la capacidad de pago familiar.",
+            "Refuerza la importancia de la educación como parte del futuro personal y profesional."
+        ]
+    },
+
+    tranquilidad: {
+        titulo: "Tranquilidad para la familia",
+        texto: "Este beneficio ofrece confianza a madres, padres y acudientes al saber que están tomando una decisión preventiva para el futuro educativo de sus hijos.",
+        puntos: [
+            "Permite planear el futuro universitario con mayor seguridad.",
+            "Disminuye la incertidumbre financiera asociada al pago de estudios superiores.",
+            "Brinda confianza al contar con una solución educativa respaldada.",
+            "Fortalece la tranquilidad familiar al anticiparse a una necesidad futura."
+        ]
+    }
+};
+
+const tarjetasBeneficio = document.querySelectorAll(".abrir-beneficio");
+const modalBeneficio = document.querySelector("#modalBeneficio");
+const cerrarBeneficio = document.querySelector(".cerrar-beneficio");
+const beneficioTitulo = document.querySelector("#beneficioTitulo");
+const beneficioTexto = document.querySelector("#beneficioTexto");
+const beneficioContenido = document.querySelector("#beneficioContenido");
+
+tarjetasBeneficio.forEach((tarjeta) => {
+    tarjeta.addEventListener("click", () => {
+        const beneficioId = tarjeta.dataset.beneficio;
+        const beneficio = beneficiosInfo[beneficioId];
+
+        if (!beneficio) return;
+
+        beneficioTitulo.textContent = beneficio.titulo;
+        beneficioTexto.textContent = beneficio.texto;
+
+        beneficioContenido.innerHTML = `
+            <ul>
+                ${beneficio.puntos.map((punto) => `<li>${punto}</li>`).join("")}
+            </ul>
+        `;
+
+        modalBeneficio.classList.add("activo");
+        document.body.classList.add("modal-beneficio-abierto");
+    });
+});
+
+if (cerrarBeneficio) {
+    cerrarBeneficio.addEventListener("click", () => {
+        modalBeneficio.classList.remove("activo");
+        document.body.classList.remove("modal-beneficio-abierto");
+    });
+}
+
+if (modalBeneficio) {
+    modalBeneficio.addEventListener("click", (event) => {
+        if (event.target === modalBeneficio) {
+            modalBeneficio.classList.remove("activo");
+            document.body.classList.remove("modal-beneficio-abierto");
         }
     });
 }
