@@ -194,10 +194,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function mostrarModalCompra() {
-        if (modalCompra) {
-            modalCompra.classList.add("activo");
-            document.body.classList.add("modal-abierto");
-        }
+     if (modalCompra) {
+        modalCompra.removeAttribute("hidden");
+        modalCompra.classList.add("activo");
+        document.body.classList.add("modal-abierto");
+     }
     }
 
     if (btnPagar) {

@@ -338,8 +338,13 @@ button:hover {
     margin-top: 20px;
 }
 
-.modal-compra {
+
+.modal-compra,
+.modal-compra[hidden] {
     display: none !important;
+}
+
+.modal-compra {
     position: fixed;
     inset: 0;
     z-index: 300;
