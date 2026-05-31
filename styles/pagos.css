@@ -19,8 +19,6 @@ body.modal-abierto {
     overflow: hidden;
 }
 
-/* HEADER */
-
 .header {
     width: 100%;
     min-height: 86px;
@@ -78,8 +76,6 @@ body.modal-abierto {
     background: #a9001e;
 }
 
-/* FONDO */
-
 .fondo-seccion {
     position: relative;
     width: 100%;
@@ -99,8 +95,6 @@ body.modal-abierto {
     background-position: center right;
 }
 
-/* CAPA OSCURA */
-
 .overlay {
     position: absolute;
     inset: 0;
@@ -112,8 +106,6 @@ body.modal-abierto {
         rgba(0, 0, 0, 0.78)
     );
 }
-
-/* FORMULARIO */
 
 .seccion-formulario {
     position: relative;
@@ -215,8 +207,6 @@ small {
     background: #fff0f0 !important;
 }
 
-/* BOTONES */
-
 button {
     width: 100%;
     min-height: 50px;
@@ -240,8 +230,6 @@ button:hover {
 #volver:hover {
     background: #444444;
 }
-
-/* PAGO */
 
 .resumen-seguro {
     background: #ffffff;
@@ -350,10 +338,12 @@ button:hover {
     margin-top: 20px;
 }
 
-/* MODAL COMPRA */
+.modal-compra,
+.modal-compra[hidden] {
+    display: none !important;
+}
 
 .modal-compra {
-    display: none !important;
     position: fixed;
     inset: 0;
     z-index: 300;
@@ -419,8 +409,6 @@ button:hover {
     background: #a9001e;
     transform: translateY(-3px);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 992px) {
     .header-contenedor {
