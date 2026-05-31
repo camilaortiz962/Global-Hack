@@ -244,6 +244,11 @@ tarjetasSeguro.forEach((tarjeta) => {
             `;
         }).join("");
 
+
+        modalLinks.innerHTML = seguro.links.map((link) => {
+            return `<a href="${link[1]}" target="_blank">${link[0]}</a>`;
+        }).join("");
+
         modalLinks.innerHTML = `
     <div class="links-pdf-seguro">
         ${seguro.links.map((link) => {
@@ -257,6 +262,7 @@ tarjetasSeguro.forEach((tarjeta) => {
         </button>
     </div>
 `;
+
 
         modalSeguro.classList.add("activo");
         document.body.classList.add("modal-seguro-abierto");
@@ -314,9 +320,13 @@ const contadorMensaje = document.querySelector("#contadorMensaje");
 if (formularioContactoValidado) {
 
     nombres.addEventListener("input", () => {
+
+        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+
         nombres.value = nombres.value
             .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
             .slice(0, 40);
+
 
         if (nombres.value.trim().length < 5) {
             errorNombres.textContent = "Ingrese nombres y apellidos válidos. Mínimo 5 caracteres.";
@@ -326,6 +336,16 @@ if (formularioContactoValidado) {
     });
 
     cedula.addEventListener("input", () => {
+
+        cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+
+        if (cedula.value.length < 6) {
+            errorCedula.textContent = "La cédula debe tener mínimo 6 números.";
+        } else {
+            errorCedula.textContent = "";
+        }
+    });
+
     cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
 
     if (cedula.value.length < 8) {
@@ -400,10 +420,16 @@ if (formularioContactoValidado) {
             formularioValido = false;
         }
 
+        if (cedula.value.length < 6 || cedula.value.length > 10) {
+            errorCedula.textContent = "La cédula debe tener entre 6 y 10 números.";
+            formularioValido = false;
+        }
+
         if (cedula.value.length < 8 || cedula.value.length > 10) {
             errorCedula.textContent = "La cédula debe tener entre 8 y 10 números.";
             formularioValido = false;
         } 
+
 
         const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -446,12 +472,15 @@ if (formularioContactoValidado) {
             alert("Formulario enviado correctamente.");
             formularioContactoValidado.reset();
             contadorMensaje.textContent = "0 / 250 caracteres";
+
             modalFormulario.classList.remove("activo");
             document.body.classList.remove("modal-abierto");
+
         } else {
             alert("Por favor revise los campos del formulario.");
         }
     });
+
 }
 
 const beneficiosInfo = {
