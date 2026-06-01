@@ -1,10 +1,15 @@
-
 console.log("index.js cargado correctamente");
 
 document.addEventListener("DOMContentLoaded"), () => {
+
 const preguntas = document.querySelectorAll(".faq-pregunta");
 }
- preguntas.forEach((pregunta) => {
+ preguntas.forEach(pregunta) => {
+
+    const preguntas = document.querySelectorAll(".faq-pregunta");
+
+    preguntas.forEach((pregunta) => {
+
         pregunta.addEventListener("click", () => {
             const item = pregunta.parentElement;
             const respuesta = item.querySelector(".faq-respuesta");
@@ -22,6 +27,7 @@ const preguntas = document.querySelectorAll(".faq-pregunta");
         });
     });
 
+}
     const botonesFormulario = document.querySelectorAll(".abrir-formulario");
     const modalFormulario = document.querySelector("#formularioContacto");
     const cerrarFormulario = document.querySelector(".cerrar-formulario");
