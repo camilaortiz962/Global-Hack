@@ -1,6 +1,11 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+const preguntas = document.querySelectorAll(".faq-pregunta");
+
 document.addEventListener("DOMContentLoaded"), () => {
 
     const preguntas = document.querySelectorAll(".faq-pregunta");
+
 
     preguntas.forEach((pregunta) => {
         pregunta.addEventListener("click", () => {
@@ -263,6 +268,7 @@ document.addEventListener("DOMContentLoaded"), () => {
             }
         });
     }
+
 const formularioContactoValidado = document.querySelector("#formularioContactoValidado");
 
 const nombres = document.querySelector("#nombres");
@@ -313,6 +319,7 @@ if (formularioContactoValidado) {
         errorCedula.textContent = "";
 
     }
+
 
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("btn-enviar-seguro")) {
@@ -413,7 +420,7 @@ if (formularioContactoValidado) {
             formularioValido = false;
 
         }
-        
+
     const beneficiosInfo = {
         planeacion: {
             titulo: "Planeación anticipada",
@@ -453,7 +460,6 @@ if (formularioContactoValidado) {
                 "Disminuye la incertidumbre financiera.",
                 "Fortalece la tranquilidad familiar."
             ]
-
         }
     };
 
