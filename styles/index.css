@@ -624,6 +624,7 @@ body.modal-beneficio-abierto {
     max-width: 980px;
 }
 
+
 .testimonios {
     text-align: center;
     min-height: 760px;
@@ -635,6 +636,7 @@ body.modal-beneficio-abierto {
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+
 }
 
 .intro {
@@ -644,12 +646,6 @@ body.modal-beneficio-abierto {
     line-height: 1.8;
     color: #ffffff;
     font-weight: 500;
-}
-
-.testimonios-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
 }
 
 .testimonio {
@@ -718,6 +714,28 @@ body.modal-beneficio-abierto {
     color: #d90429;
     font-size: 0.92rem;
     font-weight: 800;
+
+}
+
+.testimonios {
+    text-align: center;
+    min-height: 760px;
+}
+
+.testimonios h2 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    margin-bottom: 16px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+
+
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
 }
 
 .cta {
@@ -906,14 +924,17 @@ body.modal-beneficio-abierto {
 }
 
 .politica-link {
-    display: inline-block;
+    display: block;
+    width: fit-content;
     margin-top: 12px;
+    margin-bottom: 14px;
     color: #003b78;
     text-decoration: none;
     font-weight: 700;
 }
 
 .btn-formulario {
+    display: block;
     margin-top: 24px;
     width: 290px;
     max-width: 100%;
@@ -925,17 +946,6 @@ body.modal-beneficio-abierto {
     font-weight: 900;
     border-radius: 6px;
     cursor: pointer;
-}
-
-.politica-link {
-    display: block;
-    width: fit-content;
-    margin-top: 12px;
-    margin-bottom: 14px;
-}
-
-.btn-formulario {
-    display: block;
 }
 
 .campo small,
