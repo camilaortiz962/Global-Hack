@@ -1,3 +1,5 @@
+console.log("index.js cargado correctamente");
+
 document.addEventListener("DOMContentLoaded", () => {
 const preguntas = document.querySelectorAll(".faq-pregunta");
 
