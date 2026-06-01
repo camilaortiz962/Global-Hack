@@ -624,19 +624,6 @@ body.modal-beneficio-abierto {
     max-width: 980px;
 }
 
-.testimonios {
-    text-align: center;
-    min-height: 760px;
-}
-
-.testimonios h2 {
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
-    margin-bottom: 16px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
-}
-
 .intro {
     max-width: 850px;
     margin: 0 auto 48px;
@@ -644,12 +631,6 @@ body.modal-beneficio-abierto {
     line-height: 1.8;
     color: #ffffff;
     font-weight: 500;
-}
-
-.testimonios-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
 }
 
 .testimonio {
@@ -731,15 +712,6 @@ body.modal-beneficio-abierto {
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
-}
-
-.intro {
-    max-width: 850px;
-    margin: 0 auto 48px;
-    font-size: 1.08rem;
-    line-height: 1.8;
-    color: #ffffff;
-    font-weight: 500;
 }
 
 .testimonios-grid {
