@@ -261,11 +261,6 @@ tarjetasSeguro.forEach((tarjeta) => {
             `;
         }).join("");
 
-
-        modalLinks.innerHTML = seguro.links.map((link) => {
-            return `<a href="${link[1]}" target="_blank">${link[0]}</a>`;
-        }).join("");
-
         modalLinks.innerHTML = `
     <div class="links-pdf-seguro">
         ${seguro.links.map((link) => {
@@ -354,8 +349,14 @@ if (formularioContactoValidado) {
     });
 }
 
+
     cedula.addEventListener("input"), () => {
         cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+
+    cedula.addEventListener("input"), () => {
+
+    cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+
 
     if (cedula.value.length < 8) {
         errorCedula.textContent = "La cédula debe tener mínimo 8 números.";
@@ -429,11 +430,6 @@ if (formularioContactoValidado) {
             formularioValido = false;
         }
 
-
-        if (cedula.value.length < 6 || cedula.value.length > 10) {
-            errorCedula.textContent = "La cédula debe tener entre 6 y 10 números.";
-            formularioValido = false;
-        }
 
         if (cedula.value.length < 8 || cedula.value.length > 10) {
             errorCedula.textContent = "La cédula debe tener entre 8 y 10 números.";
