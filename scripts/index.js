@@ -1,5 +1,11 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 const preguntas = document.querySelectorAll(".faq-pregunta");
+
+document.addEventListener("DOMContentLoaded"), () => {
+
+    const preguntas = document.querySelectorAll(".faq-pregunta");
+
 
     preguntas.forEach((pregunta) => {
         pregunta.addEventListener("click", () => {
@@ -18,6 +24,7 @@ const preguntas = document.querySelectorAll(".faq-pregunta");
             }
         });
     });
+}
 
     const botonesFormulario = document.querySelectorAll(".abrir-formulario");
     const modalFormulario = document.querySelector("#formularioContacto");
@@ -262,6 +269,58 @@ const preguntas = document.querySelectorAll(".faq-pregunta");
         });
     }
 
+const formularioContactoValidado = document.querySelector("#formularioContactoValidado");
+
+const nombres = document.querySelector("#nombres");
+const cedula = document.querySelector("#cedula");
+const correoContacto = document.querySelector("#correoContacto");
+const telefono = document.querySelector("#telefono");
+const celular = document.querySelector("#celular");
+const ciudad = document.querySelector("#ciudad");
+const consulta = document.querySelector("#consulta");
+const enterado = document.querySelector("#enterado");
+const mensaje = document.querySelector("#mensaje");
+const datos = document.querySelector("#datos");
+
+const errorNombres = document.querySelector("#errorNombres");
+const errorCedula = document.querySelector("#errorCedula");
+const errorCorreoContacto = document.querySelector("#errorCorreoContacto");
+const errorTelefono = document.querySelector("#errorTelefono");
+const errorCelular = document.querySelector("#errorCelular");
+const errorCiudad = document.querySelector("#errorCiudad");
+const errorConsulta = document.querySelector("#errorConsulta");
+const errorEnterado = document.querySelector("#errorEnterado");
+const errorDatos = document.querySelector("#errorDatos");
+const contadorMensaje = document.querySelector("#contadorMensaje");
+
+if (formularioContactoValidado) {
+
+    nombres.addEventListener("input", () => {
+
+        nombres.value = nombres.value
+            .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
+            .slice(0, 40);
+
+        if (nombres.value.trim().length < 5) {
+            errorNombres.textContent = "Ingrese nombres y apellidos válidos. Mínimo 5 caracteres.";
+        } else {
+            errorNombres.textContent = "";
+        }
+    });
+}
+
+    cedula.addEventListener("input"), () => {
+        cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+    }
+
+    if (cedula.value.length < 8) {
+        errorCedula.textContent = "La cédula debe tener mínimo 8 números.";
+    } else {
+        errorCedula.textContent = "";
+
+    }
+
+
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("btn-enviar-seguro")) {
             const productoSeleccionado = event.target.dataset.producto;
@@ -274,6 +333,93 @@ const preguntas = document.querySelectorAll(".faq-pregunta");
             window.location.href = `Carrito.html?producto=${productoSeleccionado}`;
         }
     });
+
+
+    celular.addEventListener("input", () => {
+        celular.value = celular.value.replace(/\D/g, "").slice(0, 10);
+
+        if (celular.value.length > 0 && !celular.value.startsWith("3")) {
+            errorCelular.textContent = "El celular debe iniciar por 3.";
+        } else if (celular.value.length < 10) {
+            errorCelular.textContent = "El celular debe tener 10 números.";
+        } else {
+            errorCelular.textContent = "";
+        }
+    });
+
+    mensaje.addEventListener("input", () => {
+        mensaje.value = mensaje.value.slice(0, 250);
+        contadorMensaje.textContent = `${mensaje.value.length} / 250 caracteres`;
+    });
+
+    ciudad.addEventListener("change", () => {
+        errorCiudad.textContent = ciudad.value === "" ? "Seleccione una ciudad." : "";
+    });
+
+    consulta.addEventListener("change", () => {
+        errorConsulta.textContent = consulta.value === "" ? "Seleccione el tipo de consulta." : "";
+    });
+
+    enterado.addEventListener("change", () => {
+        errorEnterado.textContent = enterado.value === "" ? "Seleccione cómo se enteró del producto." : "";
+    });
+
+    datos.addEventListener("change", () => {
+        errorDatos.textContent = datos.checked ? "" : "Debe aceptar el tratamiento de datos personales.";
+    });
+
+    formularioContactoValidado.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let formularioValido = true;
+
+        if (nombres.value.trim().length < 5) {
+            errorNombres.textContent = "Ingrese nombres y apellidos válidos.";
+            formularioValido = false;
+        }
+
+        if (cedula.value.length < 8 || cedula.value.length > 10) {
+            errorCedula.textContent = "La cédula debe tener entre 8 y 10 números.";
+            formularioValido = false;
+        } 
+
+        const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!expresionCorreo.test(correoContacto.value)) {
+            errorCorreoContacto.textContent = "Ingrese un correo electrónico válido.";
+            formularioValido = false;
+        }
+
+        if (telefono.value !== "" && telefono.value.length < 7) {
+            errorTelefono.textContent = "El teléfono debe tener mínimo 7 números.";
+            formularioValido = false;
+        }
+
+        if (celular.value.length !== 10 || !celular.value.startsWith("3")) {
+            errorCelular.textContent = "El celular debe tener 10 números y empezar por 3.";
+            formularioValido = false;
+        }
+
+        if (ciudad.value === "") {
+            errorCiudad.textContent = "Seleccione una ciudad.";
+            formularioValido = false;
+        }
+
+        if (consulta.value === "") {
+            errorConsulta.textContent = "Seleccione el tipo de consulta.";
+            formularioValido = false;
+        }
+
+        if (enterado.value === "") {
+            errorEnterado.textContent = "Seleccione cómo se enteró del producto.";
+            formularioValido = false;
+        }
+
+        if (!datos.checked) {
+            errorDatos.textContent = "Debe aceptar el tratamiento de datos personales.";
+            formularioValido = false;
+
+        }
 
     const beneficiosInfo = {
         planeacion: {
