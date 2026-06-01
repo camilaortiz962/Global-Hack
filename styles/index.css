@@ -635,6 +635,7 @@ body.modal-beneficio-abierto {
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+
 }
 
 .intro {
@@ -726,6 +727,7 @@ body.modal-beneficio-abierto {
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+
 
 }
 
@@ -921,14 +923,17 @@ body.modal-beneficio-abierto {
 }
 
 .politica-link {
-    display: inline-block;
+    display: block;
+    width: fit-content;
     margin-top: 12px;
+    margin-bottom: 14px;
     color: #003b78;
     text-decoration: none;
     font-weight: 700;
 }
 
 .btn-formulario {
+    display: block;
     margin-top: 24px;
     width: 290px;
     max-width: 100%;
@@ -940,17 +945,6 @@ body.modal-beneficio-abierto {
     font-weight: 900;
     border-radius: 6px;
     cursor: pointer;
-}
-
-.politica-link {
-    display: block;
-    width: fit-content;
-    margin-top: 12px;
-    margin-bottom: 14px;
-}
-
-.btn-formulario {
-    display: block;
 }
 
 .campo small,

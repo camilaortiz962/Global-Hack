@@ -348,9 +348,15 @@ if (formularioContactoValidado) {
         }
     });
 }
+
+
+    cedula.addEventListener("input"), () => {
+        cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+
     cedula.addEventListener("input"), () => {
 
     cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+
 
     if (cedula.value.length < 8) {
         errorCedula.textContent = "La cédula debe tener mínimo 8 números.";
