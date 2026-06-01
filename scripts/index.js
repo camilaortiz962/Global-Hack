@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded"), () => {
 
     const preguntas = document.querySelectorAll(".faq-pregunta");
 
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+}
 
     const botonesFormulario = document.querySelectorAll(".abrir-formulario");
     const modalFormulario = document.querySelector("#formularioContacto");
@@ -302,12 +303,6 @@ if (formularioContactoValidado) {
     });
 }
 
-
-    cedula.addEventListener("input"), () => {
-
-    cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
-
-
     cedula.addEventListener("input"), () => {
         cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
     }
@@ -417,6 +412,8 @@ if (formularioContactoValidado) {
             errorDatos.textContent = "Debe aceptar el tratamiento de datos personales.";
             formularioValido = false;
 
+        }
+        
     const beneficiosInfo = {
         planeacion: {
             titulo: "Planeación anticipada",
