@@ -342,13 +342,6 @@ if (formularioContactoValidado) {
 
     nombres.addEventListener("input", () => {
 
-
-        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-
-
-
-        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-
         nombres.value = nombres.value
             .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
             .slice(0, 40);
@@ -359,20 +352,10 @@ if (formularioContactoValidado) {
             errorNombres.textContent = "";
         }
     });
+}
 
-    cedula.addEventListener("input", () => {
-
-
+    cedula.addEventListener("input"), () => {
         cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
-
-        if (cedula.value.length < 6) {
-            errorCedula.textContent = "La cédula debe tener mínimo 6 números.";
-        } else {
-            errorCedula.textContent = "";
-        }
-    });
-
-    cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
 
     if (cedula.value.length < 8) {
         errorCedula.textContent = "La cédula debe tener mínimo 8 números.";
@@ -501,12 +484,6 @@ if (formularioContactoValidado) {
 
             modalFormulario.classList.remove("activo");
             document.body.classList.remove("modal-abierto");
-
-
-
-            modalFormulario.classList.remove("activo");
-            document.body.classList.remove("modal-abierto");
-
 
         } else {
             alert("Por favor revise los campos del formulario.");
