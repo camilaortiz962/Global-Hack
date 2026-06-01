@@ -262,6 +262,58 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+const formularioContactoValidado = document.querySelector("#formularioContactoValidado");
+
+const nombres = document.querySelector("#nombres");
+const cedula = document.querySelector("#cedula");
+const correoContacto = document.querySelector("#correoContacto");
+const telefono = document.querySelector("#telefono");
+const celular = document.querySelector("#celular");
+const ciudad = document.querySelector("#ciudad");
+const consulta = document.querySelector("#consulta");
+const enterado = document.querySelector("#enterado");
+const mensaje = document.querySelector("#mensaje");
+const datos = document.querySelector("#datos");
+
+const errorNombres = document.querySelector("#errorNombres");
+const errorCedula = document.querySelector("#errorCedula");
+const errorCorreoContacto = document.querySelector("#errorCorreoContacto");
+const errorTelefono = document.querySelector("#errorTelefono");
+const errorCelular = document.querySelector("#errorCelular");
+const errorCiudad = document.querySelector("#errorCiudad");
+const errorConsulta = document.querySelector("#errorConsulta");
+const errorEnterado = document.querySelector("#errorEnterado");
+const errorDatos = document.querySelector("#errorDatos");
+const contadorMensaje = document.querySelector("#contadorMensaje");
+
+if (formularioContactoValidado) {
+
+    nombres.addEventListener("input", () => {
+
+        nombres.value = nombres.value
+            .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
+            .slice(0, 40);
+
+        if (nombres.value.trim().length < 5) {
+            errorNombres.textContent = "Ingrese nombres y apellidos válidos. Mínimo 5 caracteres.";
+        } else {
+            errorNombres.textContent = "";
+        }
+    });
+}
+
+
+    cedula.addEventListener("input"), () => {
+        cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
+    }
+
+
+    if (cedula.value.length < 8) {
+        errorCedula.textContent = "La cédula debe tener mínimo 8 números.";
+    } else {
+        errorCedula.textContent = "";
+
+    }
 
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("btn-enviar-seguro")) {
