@@ -1,7 +1,10 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-const preguntas = document.querySelectorAll(".faq-pregunta");
+console.log("index.js cargado correctamente");
+bfce83ef8f5db8a04d2941f771e01362ff169d9f
 
+document.addEventListener("DOMContentLoaded"), () => {
+const preguntas = document.querySelectorAll(".faq-pregunta");
+}
 document.addEventListener("DOMContentLoaded"), () => {
 
     const preguntas = document.querySelectorAll(".faq-pregunta");
