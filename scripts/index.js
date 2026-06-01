@@ -321,13 +321,6 @@ if (formularioContactoValidado) {
 
     nombres.addEventListener("input", () => {
 
-
-        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-
-
-
-        nombres.value = nombres.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-
         nombres.value = nombres.value
             .replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "")
             .slice(0, 40);
@@ -338,18 +331,9 @@ if (formularioContactoValidado) {
             errorNombres.textContent = "";
         }
     });
+}
 
-    cedula.addEventListener("input", () => {
-
-
-        cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
-
-        if (cedula.value.length < 6) {
-            errorCedula.textContent = "La cédula debe tener mínimo 6 números.";
-        } else {
-            errorCedula.textContent = "";
-        }
-    });
+    cedula.addEventListener("input"), () => {
 
     cedula.value = cedula.value.replace(/\D/g, "").slice(0, 10);
 
@@ -422,12 +406,6 @@ if (formularioContactoValidado) {
 
         if (nombres.value.trim().length < 5) {
             errorNombres.textContent = "Ingrese nombres y apellidos válidos.";
-            formularioValido = false;
-        }
-
-
-        if (cedula.value.length < 6 || cedula.value.length > 10) {
-            errorCedula.textContent = "La cédula debe tener entre 6 y 10 números.";
             formularioValido = false;
         }
 
