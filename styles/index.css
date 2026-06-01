@@ -718,6 +718,21 @@ body.modal-beneficio-abierto {
     color: #d90429;
     font-size: 0.92rem;
     font-weight: 800;
+
+}
+
+.testimonios {
+    text-align: center;
+    min-height: 760px;
+}
+
+.testimonios h2 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    margin-bottom: 16px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+
 }
 
 .intro {
@@ -1076,14 +1091,32 @@ body.modal-beneficio-abierto {
 
 .redes {
     display: flex;
-    gap: 18px;
+    gap: 16px;
     align-items: center;
 }
 
 .redes a {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
     color: #ffffff;
-    font-weight: 900;
     text-decoration: none;
+    font-size: 1.18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.redes a:hover {
+    background: #ffffff;
+    color: #003b78;
+    transform: translateY(-3px);
+}
+
+.redes i {
+    display: block;
+    line-height: 1;
 }
 
 @media (max-width: 992px) {
@@ -1299,6 +1332,6 @@ body.modal-beneficio-abierto {
     }
 
     .redes {
-        justify-content: center;
+    justify-content: center;
     }
 }
