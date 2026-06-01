@@ -624,8 +624,6 @@ body.modal-beneficio-abierto {
     max-width: 980px;
 }
 
-/* TESTIMONIOS */
-
 .testimonios {
     text-align: center;
     min-height: 760px;
@@ -720,19 +718,6 @@ body.modal-beneficio-abierto {
     color: #d90429;
     font-size: 0.92rem;
     font-weight: 800;
-}/* TESTIMONIOS */
-
-.testimonios {
-    text-align: center;
-    min-height: 760px;
-}
-
-.testimonios h2 {
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
-    margin-bottom: 16px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
 }
 
 .intro {
